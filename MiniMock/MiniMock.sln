@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniMock", "MiniMock\MiniMock.csproj", "{D8F8C858-7C4D-413F-8F5E-9E2FC9D7C59A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{BEC68642-55D1-425B-9F1C-381E78D1DEAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8F8C858-7C4D-413F-8F5E-9E2FC9D7C59A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8F8C858-7C4D-413F-8F5E-9E2FC9D7C59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8F8C858-7C4D-413F-8F5E-9E2FC9D7C59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8F8C858-7C4D-413F-8F5E-9E2FC9D7C59A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEC68642-55D1-425B-9F1C-381E78D1DEAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEC68642-55D1-425B-9F1C-381E78D1DEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEC68642-55D1-425B-9F1C-381E78D1DEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEC68642-55D1-425B-9F1C-381E78D1DEAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

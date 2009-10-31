@@ -1,0 +1,14 @@
+_ReSharper*
+*.resharper*
+bin
+obj
+*.suo
+*.ncb
+binaries
+CLI Debug
+*.SEATCORP.*
+*.user
+.svn
+PatchEntry.dll
+PatchStub.exe
+Milliman.MGAlfa.Packaging.dll
