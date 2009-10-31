@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MiniMock.Mocking;
+﻿using MiniMock.Mocking;
+using NUnit.Framework;
+using NUnit.Framework.SyntaxHelpers;
 
 namespace TestProject
 {
@@ -13,7 +11,6 @@ namespace TestProject
         private int ReturnedValue;
 
         [Test]
-
         public void It_should_return_the_default_value()
         {
             Assert.That(ReturnedValue, Is.EqualTo(0));

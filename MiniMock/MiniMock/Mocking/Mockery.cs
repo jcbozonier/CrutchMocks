@@ -41,7 +41,7 @@ namespace MiniMock.Mocking
                     }
                     else
                     {
-                        _GenerateMethod_Without_Return(typeBuilder, firstMethodName);
+                        _GenerateMethod_Without_Return(typeBuilder, firstMethodName, parameterTypes);
                     }
                 }
             }
@@ -67,13 +67,13 @@ namespace MiniMock.Mocking
             return methodInfo.GetParameters().Count() > 0;
         }
 
-        private static void _GenerateMethod_Without_Return(TypeBuilder typeBuilder, string firstMethodName)
+        private static void _GenerateMethod_Without_Return(TypeBuilder typeBuilder, string firstMethodName, Type[] parameterTypes)
         {
             var methodBuilder = typeBuilder.DefineMethod(
                     firstMethodName,
                     MethodAttributes.Public | MethodAttributes.Virtual,
                     typeof (void),
-                    null);
+                    parameterTypes);
             var methodIl = methodBuilder.GetILGenerator();
 
             methodIl.Emit(OpCodes.Nop);

@@ -1,8 +1,39 @@
 ﻿using System;
 using MiniMock.Mocking;
+using NUnit.Framework;
+using NUnit.Framework.SyntaxHelpers;
 
 namespace TestProject
 {
+    [TestFixture]
+    public class When_executing_a_mocked_method_that_has_NO_return_value_and_multiple_parameters
+    {
+        private IFoo MockedObject;
+
+        [Test]
+
+        public void It_should_execute_with_no_error()
+        {
+        }
+
+        [SetUp]
+        public void Setup()
+        {
+            MockedObject = Mockery.Mock<IFoo>();
+            Because();
+        }
+
+        private void Because()
+        {
+            MockedObject.Bar(3, 6);
+        }
+
+        public interface IFoo
+        {
+            void Bar(int x, object y);
+        }
+    }
+
     [TestFixture]
     public class When_executing_a_mocked_method_that_has_a_return_value_of_null_and_multiple_parameters
     {

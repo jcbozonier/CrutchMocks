@@ -1,6 +1,6 @@
 ﻿// ReSharper disable InconsistentNaming
-using System;
 using MiniMock.Mocking;
+using NUnit.Framework;
 
 namespace TestProject
 {
