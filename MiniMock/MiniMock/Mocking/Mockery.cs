@@ -79,7 +79,11 @@ namespace MiniMock.Mocking
             methodIl.Emit(OpCodes.Ret);
         }
 
-        private static void _GenerateMethod_With_Return(MethodInfo methodInfo, TypeBuilder typeBuilder, string firstMethodName, Type[] parameterTypes)
+        private static void _GenerateMethod_With_Return(
+            MethodInfo methodInfo, 
+            TypeBuilder typeBuilder, 
+            string firstMethodName, 
+            Type[] parameterTypes)
         {
             var returnType = methodInfo.ReturnType;
             var methodBuilder = typeBuilder.DefineMethod(
@@ -87,7 +91,6 @@ namespace MiniMock.Mocking
                     MethodAttributes.Public | MethodAttributes.Virtual,
                     returnType,
                     parameterTypes);
-            methodBuilder.InitLocals = true;
             var methodIl = methodBuilder.GetILGenerator();
 
             methodIl.DeclareLocal(returnType);
