@@ -76,7 +76,6 @@ namespace MiniMock.Mocking
                     parameterTypes);
             var methodIl = methodBuilder.GetILGenerator();
 
-            methodIl.Emit(OpCodes.Nop);
             methodIl.Emit(OpCodes.Ret);
         }
 
@@ -92,7 +91,6 @@ namespace MiniMock.Mocking
             var methodIl = methodBuilder.GetILGenerator();
 
             methodIl.DeclareLocal(returnType);
-            methodIl.Emit(OpCodes.Nop);
             methodIl.Emit(OpCodes.Ldloc_0);
             methodIl.Emit(OpCodes.Ret);
         }
