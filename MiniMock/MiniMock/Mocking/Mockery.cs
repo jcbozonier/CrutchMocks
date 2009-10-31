@@ -8,11 +8,6 @@ namespace MiniMock
 {
     public class Mockery
     {
-        public void BooYah()
-        {
-            
-        }
-
         public static T Mock<T>()
         {
             var assemblyName = new AssemblyName();
