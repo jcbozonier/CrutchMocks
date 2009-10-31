@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MiniMock;
-using NUnit.Framework;
+using MiniMock.Mocking;
 
 namespace TestProject
 {

@@ -4,15 +4,10 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Threading;
 
-namespace MiniMock
+namespace MiniMock.Mocking
 {
     public class Mockery
     {
-        public void BooYah()
-        {
-            
-        }
-
         public static T Mock<T>()
         {
             var assemblyName = new AssemblyName();
@@ -42,11 +37,11 @@ namespace MiniMock
 
                     if (_MethodReturnsValue(methodInfo))
                     {
-                        _GenerateMethodWithReturnNoParams(methodInfo, typeBuilder, firstMethodName, parameterTypes);
+                        _GenerateMethod_With_Return(methodInfo, typeBuilder, firstMethodName, parameterTypes);
                     }
                     else
                     {
-                        _GenerateMethodNoReturnNoParams(typeBuilder, firstMethodName);
+                        _GenerateMethod_Without_Return(typeBuilder, firstMethodName);
                     }
                 }
             }
@@ -72,34 +67,34 @@ namespace MiniMock
             return methodInfo.GetParameters().Count() > 0;
         }
 
-        private static void _GenerateMethodNoReturnNoParams(TypeBuilder typeBuilder, string firstMethodName)
+        private static void _GenerateMethod_Without_Return(TypeBuilder typeBuilder, string firstMethodName)
         {
             var methodBuilder = typeBuilder.DefineMethod(
-                firstMethodName,
-                MethodAttributes.Public | MethodAttributes.Virtual,
-                typeof (void),
-                null);
-            var methodIL = methodBuilder.GetILGenerator();
+                    firstMethodName,
+                    MethodAttributes.Public | MethodAttributes.Virtual,
+                    typeof (void),
+                    null);
+            var methodIl = methodBuilder.GetILGenerator();
 
-            methodIL.Emit(OpCodes.Nop);
-            methodIL.Emit(OpCodes.Ret);
+            methodIl.Emit(OpCodes.Nop);
+            methodIl.Emit(OpCodes.Ret);
         }
 
-        private static void _GenerateMethodWithReturnNoParams(MethodInfo methodInfo, TypeBuilder typeBuilder, string firstMethodName, Type[] parameterTypes)
+        private static void _GenerateMethod_With_Return(MethodInfo methodInfo, TypeBuilder typeBuilder, string firstMethodName, Type[] parameterTypes)
         {
             var returnType = methodInfo.ReturnType;
             var methodBuilder = typeBuilder.DefineMethod(
-                firstMethodName,
-                MethodAttributes.Public | MethodAttributes.Virtual,
-                returnType,
-                parameterTypes);
+                    firstMethodName,
+                    MethodAttributes.Public | MethodAttributes.Virtual,
+                    returnType,
+                    parameterTypes);
             methodBuilder.InitLocals = true;
-            var methodIL = methodBuilder.GetILGenerator();
+            var methodIl = methodBuilder.GetILGenerator();
 
-            methodIL.DeclareLocal(returnType);
-            methodIL.Emit(OpCodes.Nop);
-            methodIL.Emit(OpCodes.Ldloc_0);
-            methodIL.Emit(OpCodes.Ret);
+            methodIl.DeclareLocal(returnType);
+            methodIl.Emit(OpCodes.Nop);
+            methodIl.Emit(OpCodes.Ldloc_0);
+            methodIl.Emit(OpCodes.Ret);
         }
 
         private static bool _MethodReturnsValue(MethodInfo methodInfo)
